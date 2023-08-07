@@ -14,6 +14,9 @@
 		B00AFBC72A63A62800D34703 /* BeRealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBC62A63A62800D34703 /* BeRealTests.swift */; };
 		B00AFBD12A63A62800D34703 /* BeRealUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBD02A63A62800D34703 /* BeRealUITests.swift */; };
 		B00AFBD32A63A62800D34703 /* BeRealUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBD22A63A62800D34703 /* BeRealUITestsLaunchTests.swift */; };
+		B05FD6072A813DFA001954BE /* ThreeDots.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05FD6062A813DF9001954BE /* ThreeDots.swift */; };
+		B0E647212A63EE66005B4F29 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E647202A63EE66005B4F29 /* Feed.swift */; };
+		B0E647242A63FDE8005B4F29 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E647232A63FDE8005B4F29 /* FeedCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +47,9 @@
 		B00AFBCC2A63A62800D34703 /* BeRealUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeRealUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00AFBD02A63A62800D34703 /* BeRealUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealUITests.swift; sourceTree = "<group>"; };
 		B00AFBD22A63A62800D34703 /* BeRealUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		B05FD6062A813DF9001954BE /* ThreeDots.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeDots.swift; sourceTree = "<group>"; };
+		B0E647202A63EE66005B4F29 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		B0E647232A63FDE8005B4F29 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +100,13 @@
 		B00AFBB42A63A62300D34703 /* BeReal */ = {
 			isa = PBXGroup;
 			children = (
+				B05FD6052A813DDB001954BE /* Helpers */,
 				B00AFBB52A63A62300D34703 /* BeRealApp.swift */,
 				B00AFBB72A63A62300D34703 /* ContentView.swift */,
 				B00AFBB92A63A62700D34703 /* Assets.xcassets */,
 				B00AFBBB2A63A62700D34703 /* Preview Content */,
+				B0E647202A63EE66005B4F29 /* Feed.swift */,
+				B0E647232A63FDE8005B4F29 /* FeedCell.swift */,
 			);
 			path = BeReal;
 			sourceTree = "<group>";
@@ -125,6 +134,14 @@
 				B00AFBD22A63A62800D34703 /* BeRealUITestsLaunchTests.swift */,
 			);
 			path = BeRealUITests;
+			sourceTree = "<group>";
+		};
+		B05FD6052A813DDB001954BE /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B05FD6062A813DF9001954BE /* ThreeDots.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +275,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */,
+				B05FD6072A813DFA001954BE /* ThreeDots.swift in Sources */,
+				B0E647242A63FDE8005B4F29 /* FeedCell.swift in Sources */,
+				B0E647212A63EE66005B4F29 /* Feed.swift in Sources */,
 				B00AFBB62A63A62300D34703 /* BeRealApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
