@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84DB92622A832FCA00AB0DA2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92612A832FCA00AB0DA2 /* Profile.swift */; };
+		84DB92642A8334A200AB0DA2 /* MemoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92632A8334A200AB0DA2 /* MemoryView.swift */; };
 		B00AFBB62A63A62300D34703 /* BeRealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB52A63A62300D34703 /* BeRealApp.swift */; };
 		B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB72A63A62300D34703 /* ContentView.swift */; };
 		B00AFBBA2A63A62700D34703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00AFBB92A63A62700D34703 /* Assets.xcassets */; };
@@ -37,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		84DB92612A832FCA00AB0DA2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		84DB92632A8334A200AB0DA2 /* MemoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryView.swift; sourceTree = "<group>"; };
 		B00AFBB22A63A62300D34703 /* BeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00AFBB52A63A62300D34703 /* BeRealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealApp.swift; sourceTree = "<group>"; };
 		B00AFBB72A63A62300D34703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -107,6 +111,8 @@
 				B00AFBBB2A63A62700D34703 /* Preview Content */,
 				B0E647202A63EE66005B4F29 /* Feed.swift */,
 				B0E647232A63FDE8005B4F29 /* FeedCell.swift */,
+				84DB92612A832FCA00AB0DA2 /* Profile.swift */,
+				84DB92632A8334A200AB0DA2 /* MemoryView.swift */,
 			);
 			path = BeReal;
 			sourceTree = "<group>";
@@ -274,7 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DB92642A8334A200AB0DA2 /* MemoryView.swift in Sources */,
 				B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */,
+				84DB92622A832FCA00AB0DA2 /* Profile.swift in Sources */,
 				B05FD6072A813DFA001954BE /* ThreeDots.swift in Sources */,
 				B0E647242A63FDE8005B4F29 /* FeedCell.swift in Sources */,
 				B0E647212A63EE66005B4F29 /* Feed.swift in Sources */,
