@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct ContactUsView: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -19,9 +21,13 @@ struct ContactUsView: View {
                         .fontWeight(.semibold)
                     
                     HStack{
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.backward")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                        })
                         Spacer()
                     }
                 }.padding(.horizontal)
@@ -70,6 +76,10 @@ struct ContactUsView: View {
 
 struct ContactUsView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactUsView()
+        if #available(iOS 15.0, *) {
+            ContactUsView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

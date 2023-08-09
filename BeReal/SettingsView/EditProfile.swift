@@ -7,12 +7,15 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct EditProfile: View {
     @State var width = UIScreen.main.bounds.width
     @State var fullname = ""
     @State var username = ""
     @State var bio = ""
     @State var location = ""
+    
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -20,7 +23,11 @@ struct EditProfile: View {
             VStack{
                 ZStack{
                     HStack{
-                        Text("Cancel").foregroundColor(.white)
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Text("Cancel").foregroundColor(.white)
+                        })
                         Spacer()
                         Text("Save").foregroundColor(.gray)
                     }.padding(.horizontal,width*0.05)
@@ -168,6 +175,10 @@ struct EditProfile: View {
 
 struct EditProfile_Previews: PreviewProvider {
     static var previews: some View {
-        EditProfile()
+        if #available(iOS 15.0, *) {
+            EditProfile()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

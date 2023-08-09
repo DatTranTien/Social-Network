@@ -26,6 +26,7 @@
 		84DB92892A838F4600AB0DA2 /* ChevronButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */; };
 		84DB928B2A83917400AB0DA2 /* ContactUsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB928A2A83917400AB0DA2 /* ContactUsView.swift */; };
 		84DB928D2A83944A00AB0DA2 /* MemoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB928C2A83944A00AB0DA2 /* MemoriesView.swift */; };
+		84DB928F2A839AE300AB0DA2 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB928E2A839AE300AB0DA2 /* NotificationsView.swift */; };
 		B00AFBB62A63A62300D34703 /* BeRealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB52A63A62300D34703 /* BeRealApp.swift */; };
 		B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB72A63A62300D34703 /* ContentView.swift */; };
 		B00AFBBA2A63A62700D34703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00AFBB92A63A62700D34703 /* Assets.xcassets */; };
@@ -75,6 +76,7 @@
 		84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChevronButtonView.swift; sourceTree = "<group>"; };
 		84DB928A2A83917400AB0DA2 /* ContactUsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsView.swift; sourceTree = "<group>"; };
 		84DB928C2A83944A00AB0DA2 /* MemoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoriesView.swift; sourceTree = "<group>"; };
+		84DB928E2A839AE300AB0DA2 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		B00AFBB22A63A62300D34703 /* BeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00AFBB52A63A62300D34703 /* BeRealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealApp.swift; sourceTree = "<group>"; };
 		B00AFBB72A63A62300D34703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -145,6 +147,21 @@
 			path = SearchBar;
 			sourceTree = "<group>";
 		};
+		84DB92912A839E3200AB0DA2 /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				84DB92672A834DF700AB0DA2 /* EditProfile.swift */,
+				84DB92652A833CA700AB0DA2 /* Setting.swift */,
+				84DB926C2A83649500AB0DA2 /* TimeZoneView.swift */,
+				84DB92802A83898000AB0DA2 /* OtherView.swift */,
+				84DB92842A838E8F00AB0DA2 /* HelpView.swift */,
+				84DB928A2A83917400AB0DA2 /* ContactUsView.swift */,
+				84DB928C2A83944A00AB0DA2 /* MemoriesView.swift */,
+				84DB928E2A839AE300AB0DA2 /* NotificationsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		B00AFBA92A63A62200D34703 = {
 			isa = PBXGroup;
 			children = (
@@ -180,14 +197,8 @@
 				B0E647232A63FDE8005B4F29 /* FeedCell.swift */,
 				84DB92612A832FCA00AB0DA2 /* Profile.swift */,
 				84DB92632A8334A200AB0DA2 /* MemoryView.swift */,
-				84DB92652A833CA700AB0DA2 /* Setting.swift */,
-				84DB92672A834DF700AB0DA2 /* EditProfile.swift */,
-				84DB926C2A83649500AB0DA2 /* TimeZoneView.swift */,
-				84DB92802A83898000AB0DA2 /* OtherView.swift */,
-				84DB92842A838E8F00AB0DA2 /* HelpView.swift */,
 				84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */,
-				84DB928A2A83917400AB0DA2 /* ContactUsView.swift */,
-				84DB928C2A83944A00AB0DA2 /* MemoriesView.swift */,
+				84DB92912A839E3200AB0DA2 /* SettingsView */,
 			);
 			path = BeReal;
 			sourceTree = "<group>";
@@ -371,6 +382,7 @@
 				84DB927B2A837A6000AB0DA2 /* FriendsView.swift in Sources */,
 				B0E647242A63FDE8005B4F29 /* FeedCell.swift in Sources */,
 				84DB92892A838F4600AB0DA2 /* ChevronButtonView.swift in Sources */,
+				84DB928F2A839AE300AB0DA2 /* NotificationsView.swift in Sources */,
 				84DB92722A83709B00AB0DA2 /* LeftmenuTopView.swift in Sources */,
 				84DB928D2A83944A00AB0DA2 /* MemoriesView.swift in Sources */,
 				B0E647212A63EE66005B4F29 /* Feed.swift in Sources */,

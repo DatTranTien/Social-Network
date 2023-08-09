@@ -7,8 +7,10 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct OtherView: View {
     @State var fastCamera = false
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -20,9 +22,13 @@ struct OtherView: View {
                         .fontWeight(.semibold)
                     
                     HStack{
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.backward")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                        })
                         Spacer()
                     }
                 }.padding(.horizontal)
@@ -99,6 +105,10 @@ struct OtherView: View {
 
 struct OtherView_Previews: PreviewProvider {
     static var previews: some View {
-        OtherView()
+        if #available(iOS 15.0, *) {
+            OtherView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

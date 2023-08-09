@@ -29,7 +29,16 @@ struct Profile: View {
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                         Spacer()
-                        ThreeDots(size: 4, color: .white)
+                        NavigationLink{
+                            if #available(iOS 15.0, *) {
+                                Setting().navigationBarBackButtonHidden()
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            
+                        }label: {
+                            ThreeDots(size: 4, color: .white)
+                        }
                     }
                     .padding(.horizontal)
                     Spacer()

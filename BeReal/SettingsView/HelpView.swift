@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct HelpView: View {
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -19,9 +21,13 @@ struct HelpView: View {
                         .fontWeight(.semibold)
                     
                     HStack{
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.backward")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                        })
                         Spacer()
                     }
                 }.padding(.horizontal)
@@ -29,7 +35,11 @@ struct HelpView: View {
             }
             VStack{
                 VStack(spacing:16){
-                   ChevronButtonView(icon: "envelope", text: "Contact us")
+                    NavigationLink{
+                        ContactUsView().navigationBarBackButtonHidden()
+                    }label: {
+                        ChevronButtonView(icon: "envelope", text: "Contact us")
+                    }
                     ChevronButtonView(icon: "questionmark.circle", text: "Help Center")
                     Spacer()
                 }.padding(.horizontal)
@@ -41,6 +51,10 @@ struct HelpView: View {
 
 struct HelpView_Previews: PreviewProvider {
     static var previews: some View {
-        HelpView()
+        if #available(iOS 15.0, *) {
+            HelpView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }

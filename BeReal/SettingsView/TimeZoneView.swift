@@ -7,9 +7,11 @@
 
 import SwiftUI
 
+@available(iOS 15.0, *)
 struct TimeZoneView: View {
     @State var width = UIScreen.main.bounds.width
     @State var area = "europe"
+    @Environment(\.dismiss) var dismiss
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -21,9 +23,13 @@ struct TimeZoneView: View {
                         .fontWeight(.semibold)
                     
                     HStack{
-                        Image(systemName: "arrow.backward")
-                            .foregroundColor(.white)
-                            .font(.system(size: 20))
+                        Button(action: {
+                            dismiss()
+                        }, label: {
+                            Image(systemName: "arrow.backward")
+                                .foregroundColor(.white)
+                                .font(.system(size: 20))
+                        })
                         Spacer()
                     }
                 }.padding(.horizontal)
@@ -168,6 +174,10 @@ struct TimeZoneView: View {
 
 struct TimeZoneView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeZoneView()
+        if #available(iOS 15.0, *) {
+            TimeZoneView()
+        } else {
+            // Fallback on earlier versions
+        }
     }
 }
