@@ -13,6 +13,7 @@ struct LeftMenu: View {
             ZStack{
                 Color.black.ignoresSafeArea()
                 LeftmenuTopView()
+                Suggesions()
             }
         }
     }
