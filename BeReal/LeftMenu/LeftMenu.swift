@@ -10,11 +10,12 @@ import SwiftUI
 struct LeftMenu: View {
     @State var width = UIScreen.main.bounds.width
     @State var menu = "suggesions"
+    @Binding var mainMenu: String
     var body: some View {
         VStack{
             ZStack{
                 Color.black.ignoresSafeArea()
-                LeftmenuTopView()
+                LeftmenuTopView(mainMenu: $mainMenu)
                 if menu == "suggesions"
                 {Suggesions()}
                     else if menu == "friends"
@@ -80,6 +81,6 @@ struct LeftMenu: View {
 
 struct LeftMenu_Previews: PreviewProvider {
     static var previews: some View {
-        LeftMenu()
+        LeftMenu(mainMenu: .constant("left"))
     }
 }

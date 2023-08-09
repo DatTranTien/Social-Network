@@ -11,13 +11,21 @@ struct LeftmenuTopView: View {
     @State var text = ""
     @State var isEditing = false
     
+    @Binding var mainMenu: String
+    
     var body: some View {
         VStack{
             ZStack{
                 HStack{
                  Spacer()
-                    Image(systemName: "arrow.forward")
-                        .foregroundColor(.white)
+                    Button(action: {
+                        withAnimation{
+                            self.mainMenu="feed"
+                        }
+                    }, label: {
+                        Image(systemName: "arrow.forward")
+                            .foregroundColor(.white)
+                    })
                 }
                 Text("BeReal.").foregroundColor(.white)
                     .fontWeight(.bold)
@@ -31,6 +39,6 @@ struct LeftmenuTopView: View {
 
 struct LeftmenuTopView_Previews: PreviewProvider {
     static var previews: some View {
-        LeftmenuTopView()
+        LeftmenuTopView(mainMenu: .constant(""))
     }
 }

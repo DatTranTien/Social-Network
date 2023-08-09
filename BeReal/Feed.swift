@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct Feed: View {
+    @Binding var mainMenu : String
     var body: some View {
         ZStack{
             Color.black
@@ -68,18 +69,29 @@ struct Feed: View {
             VStack{
             VStack{
                 HStack{
-                    Image("1")
-                        .foregroundColor(.white)
+                    Button(action: {
+                        withAnimation{
+                            self.mainMenu="left"
+                        }
+                    }, label: {
+                        Image(systemName: "person.2.fill")
+                            .foregroundColor(.white)
+                    })
                     Spacer()
                     Text("BeReal.")
                         .foregroundColor(.white)
                         .fontWeight(.bold)
                         .font(.system(size: 22))
                     Spacer()
-                    Image("pp")
-                        .resizable()
-                        .frame(width: 35, height: 35, alignment: .center)
-                        .cornerRadius(17.5)
+                    Button(action: {
+                        withAnimation{
+                            self.mainMenu="profile"
+                        }}, label: {
+                        Image("pp")
+                            .resizable()
+                            .frame(width: 35, height: 35, alignment: .center)
+                            .cornerRadius(17.5)
+                    })
                 }
                 .padding(.horizontal)
                 
@@ -101,6 +113,6 @@ struct Feed: View {
 
 struct Feed_Previews: PreviewProvider {
     static var previews: some View {
-        Feed()
+        Feed(mainMenu: .constant("feed"))
     }
 }
