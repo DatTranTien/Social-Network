@@ -12,6 +12,8 @@ struct EnterPhoneNumber: View {
     @State var showCountryList = false
     @State var phoneNumber = ""
     @State var buttonActive = false
+    @Binding var phoneButtonClicked: Bool
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -50,7 +52,7 @@ struct EnterPhoneNumber: View {
                         self.showCountryList.toggle()
                     }
                 Text("Your Phone")
-                    .foregroundColor(Color(red: 70/255, green: 70/255, blue: 73/255))
+                    .foregroundColor(phoneNumber.isEmpty ? Color(red: 70/255, green: 70/255, blue: 73/255) : .black)
                     .fontWeight(.heavy)
                     .font(.system(size: 40))
                     .frame(width: 220)
@@ -71,7 +73,7 @@ struct EnterPhoneNumber: View {
                 .multilineTextAlignment(.center)
 
             Button(action: {
-
+                viewModel.sendOTP()
             }, label: {
                 WhiteButtonView(buttonActive: $buttonActive, text: "Continue")
                     .onChange(of: phoneNumber, perform: {newValue in
@@ -83,12 +85,21 @@ struct EnterPhoneNumber: View {
                     })
             }).disabled(phoneNumber.isEmpty ? true : false)
         }
-        }
+        }.background(
+            NavigationLink(tag: "VERIFICATION", selection:$viewModel.navigationTag){
+                EnterCodeView()
+                    .environmentObject(viewModel)
+            } label: {
+                
+            }
+                .labelsHidden()
+        )
+        .environment(\.colorScheme, .dark)
     }
 }
 
-struct EnterPhoneNumber_Previews: PreviewProvider {
-    static var previews: some View {
-        EnterPhoneNumber()
-    }
-}
+//struct EnterPhoneNumber_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EnterPhoneNumber()
+//    }
+//}

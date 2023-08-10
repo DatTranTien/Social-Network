@@ -12,8 +12,10 @@ struct EnterAgeView: View {
     @State var day = ""
     @State var month = ""
     @State var year = ""
-    @State var ageButtonClicked = false
+    @Binding var ageButtonClicked: Bool
     @State var buttonActive = false
+    
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -130,9 +132,11 @@ struct EnterAgeView: View {
                     .font(.system(size: 14))
                 
                 Button(action: {
-                    
+                    if buttonActive {
+                        ageButtonClicked = true
+                    }
                 }, label: {
-                    WhiteButtonView(buttonActive: $ageButtonClicked, text: "Continue")
+                    WhiteButtonView(buttonActive: $buttonActive, text: "Continue")
                         .onChange(of: month, perform: {newValue in
                             if !newValue.isEmpty{
                                 buttonActive = true
@@ -146,8 +150,8 @@ struct EnterAgeView: View {
     }
 }
 
-struct EnterAgeView_Previews: PreviewProvider {
-    static var previews: some View {
-        EnterAgeView()
-    }
-}
+//struct EnterAgeView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EnterAgeView()
+//    }
+//}

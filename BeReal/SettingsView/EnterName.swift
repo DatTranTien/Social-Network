@@ -10,6 +10,7 @@ import SwiftUI
 struct EnterName: View {
     @State var textName = ""
     @State var buttonActive = false
+    @Binding var nameButtonClicked: Bool
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -36,6 +37,8 @@ struct EnterName: View {
                     .overlay(
                        TextField("",text: $textName)
                         .font(.system(size: 40,weight: .heavy))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.white)
                     )
             }.foregroundColor(.white)
                 Spacer()
@@ -43,22 +46,30 @@ struct EnterName: View {
                 
             VStack{
              Spacer()
-                WhiteButtonView(buttonActive: $buttonActive, text: "Continue")
-                    .onChange(of: textName){
-                        newValue in
-                        if !newValue.isEmpty {
-                            buttonActive = true
-                        }else if newValue.isEmpty {
-                            buttonActive = false
-                        }
+                Button(action: {
+                    if buttonActive {
+                        self.nameButtonClicked = true
+                    }else {
+                        self.buttonActive = true
                     }
+                }, label: {
+                    WhiteButtonView(buttonActive: $buttonActive, text: "Continue")
+                        .onChange(of: textName){
+                            newValue in
+                            if !newValue.isEmpty {
+                                buttonActive = true
+                            }else if newValue.isEmpty {
+                                buttonActive = false
+                            }
+                        }
+                })
             }
         }
     }
 }
 
-struct EnterName_Previews: PreviewProvider {
-    static var previews: some View {
-        EnterName()
-    }
-}
+//struct EnterName_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EnterName()
+//    }
+//}

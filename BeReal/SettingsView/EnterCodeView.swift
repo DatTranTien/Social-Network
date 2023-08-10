@@ -12,6 +12,7 @@ struct EnterCodeView: View {
     @State var otp = ""
     @State var buttonActive = false
     @State var timeRemaining=60
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     let timmer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     var body: some View {
         ZStack{
