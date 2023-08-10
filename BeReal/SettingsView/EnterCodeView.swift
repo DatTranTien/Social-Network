@@ -37,27 +37,27 @@ struct EnterCodeView: View {
                             .font(.system(size: 16))
                         
                         Text(".....")
-                            .foregroundColor(otp.isEmpty ? .gray : .black)
+                            .foregroundColor(viewModel.otpText.isEmpty ? .gray : .black)
                             .opacity(0.8)
                             .font(.system(size: 70))
                             .padding(.top,-40)
                             .overlay(
-                                TextField("", text: $otp)
+                                TextField("", text: $viewModel.otpText)
                                     .foregroundColor(.white)
                                     .font(.system(size: 24,weight: .heavy))
                                     .multilineTextAlignment(.center)
                                     .keyboardType(.numberPad)
-                                    .onReceive(Just(otp), perform: {
+                                    .onReceive(Just(viewModel.otpText), perform: {
                                         _ in
                                         limitText(6)
                                     })
-                                    .onReceive(Just(otp), perform: {
+                                    .onReceive(Just(viewModel.otpText), perform: {
                                         newValue in
                                         let filltered = newValue.filter({
                                             Set("0123456789").contains($0)
                                         })
                                         if filltered != newValue {
-                                            otp = filltered
+                                            viewModel.otpText = filltered
                                         }
                                     })
                             )
@@ -73,11 +73,15 @@ struct EnterCodeView: View {
                         .fontWeight(.bold)
                     
                     Button(action: {
-//                        sel
+                        if buttonActive {
+                            Task {
+                                await self.viewModel.verifyOTP()
+                            }
+                        }
                     }, label: {
-                        WhiteButtonView(buttonActive: $buttonActive, text: otp.count == 6 ? "Continue" : "Resend in \(timeRemaining)s")
+                        WhiteButtonView(buttonActive: $buttonActive, text: viewModel.otpText.count == 6 ? "Continue" : "Resend in \(timeRemaining)s")
                     }).disabled(buttonActive ? false : true)
-                        .onChange(of: otp, perform: {newValue in
+                        .onChange(of: viewModel.otpText, perform: {newValue in
                             if !newValue.isEmpty {
                                 buttonActive = true
                             }else if newValue.isEmpty {
@@ -95,8 +99,8 @@ struct EnterCodeView: View {
         })
     }
     func limitText(_ upper: Int){
-        if otp.count > upper {
-            otp = String(otp.prefix(upper))
+        if viewModel.otpText.count > upper {
+            viewModel.otpText = String(viewModel.otpText.prefix(upper))
         }
     }
 }

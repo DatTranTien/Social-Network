@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct EnterName: View {
-    @State var textName = ""
+    @Binding var textName: String
     @State var buttonActive = false
     @Binding var nameButtonClicked: Bool
     var body: some View {
@@ -30,7 +30,7 @@ struct EnterName: View {
                     .font(.system(size: 16))
                 
                 Text("Your name")
-                    .foregroundColor(Color(red: 70/255, green: 70/255, blue: 73/255))
+                    .foregroundColor(textName.isEmpty ? Color(red: 70/255, green: 70/255, blue: 73/255) : .black)
                     .fontWeight(.heavy)
                     .font(.system(size: 40))
                     .frame(width: 210)

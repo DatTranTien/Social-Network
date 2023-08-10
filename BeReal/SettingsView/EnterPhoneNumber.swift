@@ -10,7 +10,6 @@ import SwiftUI
 struct EnterPhoneNumber: View {
 //    @State var country = Country(isoCode: "US")
     @State var showCountryList = false
-    @State var phoneNumber = ""
     @State var buttonActive = false
     @Binding var phoneButtonClicked: Bool
     @EnvironmentObject var viewModel: AuthenticationViewModel
@@ -40,24 +39,19 @@ struct EnterPhoneNumber: View {
                     .stroke(lineWidth: 1)
                     .frame(width: 75,height: 45)
                     .foregroundColor(.gray)
-//                    .overlay(
-//                        Text("\(country.flag(country:country.isoCode))")
-//                        +
-//                        Text("+\(country.phoneCode)")
-//                            .foregroundColor(.white)
-//                            .font(.system(size: 12))
-//                            .fontWeight(.bold)
-//                    )
-                    .onTapGesture {
-                        self.showCountryList.toggle()
-                    }
+                    .overlay(
+                        Text("+84")
+                    )
+//                    .onTapGesture {
+//                        self.showCountryList.toggle()
+//                    }
                 Text("Your Phone")
-                    .foregroundColor(phoneNumber.isEmpty ? Color(red: 70/255, green: 70/255, blue: 73/255) : .black)
+                    .foregroundColor(viewModel.phoneNumber.isEmpty ? Color(red: 70/255, green: 70/255, blue: 73/255) : .black)
                     .fontWeight(.heavy)
                     .font(.system(size: 40))
                     .frame(width: 220)
                     .overlay (
-                    TextField("", text: $phoneNumber))
+                        TextField("", text: $viewModel.phoneNumber))
                     .foregroundColor(.white)
                     .font(.system(size: 40,weight: .heavy))
             }
@@ -73,19 +67,27 @@ struct EnterPhoneNumber: View {
                 .multilineTextAlignment(.center)
 
             Button(action: {
-                viewModel.sendOTP()
+                Task{ await viewModel.sendOTP()}
+//                viewModel.sendOTP()
+                
             }, label: {
                 WhiteButtonView(buttonActive: $buttonActive, text: "Continue")
-                    .onChange(of: phoneNumber, perform: {newValue in
+                    .onChange(of: viewModel.phoneNumber, perform: {newValue in
                         if !newValue.isEmpty{
                             buttonActive = true
                         }else if newValue.isEmpty {
                             buttonActive = false
                         }
                     })
-            }).disabled(phoneNumber.isEmpty ? true : false)
+            }).disabled(viewModel.phoneNumber.isEmpty ? true : false)
         }
-        }.background(
+        }
+//        .overlay{
+//            Progress()
+//                .opacity(viewModel.isLoading ? 1 : 0)
+//        }
+        
+        .background(
             NavigationLink(tag: "VERIFICATION", selection:$viewModel.navigationTag){
                 EnterCodeView()
                     .environmentObject(viewModel)

@@ -12,20 +12,20 @@ struct MainAuthenticationView: View {
     @State private var ageButtonClicked = false
     @State private var phoneButtonClicked = false
     
-    @StateObject var viewModel = AuthenticationViewModel()
+    @EnvironmentObject var viewModel: AuthenticationViewModel
     var body: some View {
         NavigationView{
             if !nameButtonClicked {
-                EnterName(nameButtonClicked: $nameButtonClicked)
+                EnterName(textName: $viewModel.name, nameButtonClicked: $nameButtonClicked)
                     .environmentObject(viewModel)
             }
             else if nameButtonClicked && !ageButtonClicked {
-                EnterAgeView(ageButtonClicked: $ageButtonClicked)
+                EnterAgeView(year: $viewModel.year, name: $viewModel.name, ageButtonClicked: $ageButtonClicked)
                     .environmentObject(viewModel)
             }
-            else if nameButtonClicked && !ageButtonClicked && !phoneButtonClicked {
-//                EnterPhoneNumber(phoneButtonClicked: $phoneButtonClicked)
-//                .environmentObject(viewModel)
+            else if nameButtonClicked && ageButtonClicked && !phoneButtonClicked {
+                EnterPhoneNumber(phoneButtonClicked: $phoneButtonClicked)
+                .environmentObject(viewModel)
             }
         }
     }

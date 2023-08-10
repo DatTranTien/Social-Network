@@ -36,6 +36,14 @@
 		84DB92A12A84946500AB0DA2 /* MainAuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92A02A84946500AB0DA2 /* MainAuthenticationView.swift */; };
 		84DB92A32A84970D00AB0DA2 /* Year.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92A22A84970D00AB0DA2 /* Year.swift */; };
 		84DB92A72A84978100AB0DA2 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92A62A84978100AB0DA2 /* AuthenticationViewModel.swift */; };
+		84DB92AA2A84CB2A00AB0DA2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92A92A84CB2A00AB0DA2 /* FirebaseAuth */; };
+		84DB92AC2A84CB2A00AB0DA2 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92AB2A84CB2A00AB0DA2 /* FirebaseFirestore */; };
+		84DB92AE2A84CB2A00AB0DA2 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92AD2A84CB2A00AB0DA2 /* FirebaseFirestoreSwift */; };
+		84DB92B02A84CB2A00AB0DA2 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92AF2A84CB2A00AB0DA2 /* FirebaseStorage */; };
+		84DB92B22A84CB2A00AB0DA2 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92B12A84CB2A00AB0DA2 /* FirebaseStorageCombine-Community */; };
+		84DB92B62A84CC0400AB0DA2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 84DB92B52A84CC0400AB0DA2 /* GoogleService-Info.plist */; };
+		84DB92B92A84DF3D00AB0DA2 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92B82A84DF3D00AB0DA2 /* User.swift */; };
+		84DB92BB2A84E17E00AB0DA2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92BA2A84E17E00AB0DA2 /* MainView.swift */; };
 		B00AFBB62A63A62300D34703 /* BeRealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB52A63A62300D34703 /* BeRealApp.swift */; };
 		B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB72A63A62300D34703 /* ContentView.swift */; };
 		B00AFBBA2A63A62700D34703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00AFBB92A63A62700D34703 /* Assets.xcassets */; };
@@ -95,6 +103,10 @@
 		84DB92A02A84946500AB0DA2 /* MainAuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAuthenticationView.swift; sourceTree = "<group>"; };
 		84DB92A22A84970D00AB0DA2 /* Year.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Year.swift; sourceTree = "<group>"; };
 		84DB92A62A84978100AB0DA2 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		84DB92B52A84CC0400AB0DA2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		84DB92B72A84D0AA00AB0DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		84DB92B82A84DF3D00AB0DA2 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		84DB92BA2A84E17E00AB0DA2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		B00AFBB22A63A62300D34703 /* BeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00AFBB52A63A62300D34703 /* BeRealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealApp.swift; sourceTree = "<group>"; };
 		B00AFBB72A63A62300D34703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -115,6 +127,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84DB92AA2A84CB2A00AB0DA2 /* FirebaseAuth in Frameworks */,
+				84DB92B02A84CB2A00AB0DA2 /* FirebaseStorage in Frameworks */,
+				84DB92B22A84CB2A00AB0DA2 /* FirebaseStorageCombine-Community in Frameworks */,
+				84DB92AC2A84CB2A00AB0DA2 /* FirebaseFirestore in Frameworks */,
+				84DB92AE2A84CB2A00AB0DA2 /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,11 +199,21 @@
 				84DB929A2A84855E00AB0DA2 /* EnterPhoneNumber.swift */,
 				84DB929E2A848DD500AB0DA2 /* EnterCodeView.swift */,
 				84DB92A22A84970D00AB0DA2 /* Year.swift */,
+				84DB92B82A84DF3D00AB0DA2 /* User.swift */,
 				84DB92A62A84978100AB0DA2 /* AuthenticationViewModel.swift */,
+				84DB92BA2A84E17E00AB0DA2 /* MainView.swift */,
 				84DB92A02A84946500AB0DA2 /* MainAuthenticationView.swift */,
 				84DB92922A84758700AB0DA2 /* NotificationButtonView.swift */,
 			);
 			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		84DB92B42A84CBBC00AB0DA2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				84DB92B52A84CC0400AB0DA2 /* GoogleService-Info.plist */,
+			);
+			path = Shared;
 			sourceTree = "<group>";
 		};
 		B00AFBA92A63A62200D34703 = {
@@ -212,6 +239,8 @@
 		B00AFBB42A63A62300D34703 /* BeReal */ = {
 			isa = PBXGroup;
 			children = (
+				84DB92B72A84D0AA00AB0DA2 /* Info.plist */,
+				84DB92B42A84CBBC00AB0DA2 /* Shared */,
 				84DB92732A83711800AB0DA2 /* SearchBar */,
 				84DB926E2A83707200AB0DA2 /* LeftMenu */,
 				84DB92692A8350DF00AB0DA2 /* Extentions */,
@@ -279,6 +308,13 @@
 			dependencies = (
 			);
 			name = BeReal;
+			packageProductDependencies = (
+				84DB92A92A84CB2A00AB0DA2 /* FirebaseAuth */,
+				84DB92AB2A84CB2A00AB0DA2 /* FirebaseFirestore */,
+				84DB92AD2A84CB2A00AB0DA2 /* FirebaseFirestoreSwift */,
+				84DB92AF2A84CB2A00AB0DA2 /* FirebaseStorage */,
+				84DB92B12A84CB2A00AB0DA2 /* FirebaseStorageCombine-Community */,
+			);
 			productName = BeReal;
 			productReference = B00AFBB22A63A62300D34703 /* BeReal.app */;
 			productType = "com.apple.product-type.application";
@@ -351,6 +387,9 @@
 				Base,
 			);
 			mainGroup = B00AFBA92A63A62200D34703;
+			packageReferences = (
+				84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = B00AFBB32A63A62300D34703 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -369,6 +408,7 @@
 			files = (
 				B00AFBBD2A63A62700D34703 /* Preview Assets.xcassets in Resources */,
 				B00AFBBA2A63A62700D34703 /* Assets.xcassets in Resources */,
+				84DB92B62A84CC0400AB0DA2 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +434,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DB92642A8334A200AB0DA2 /* MemoryView.swift in Sources */,
+				84DB92BB2A84E17E00AB0DA2 /* MainView.swift in Sources */,
 				84DB927F2A837CDE00AB0DA2 /* RequestView.swift in Sources */,
 				84DB92A72A84978100AB0DA2 /* AuthenticationViewModel.swift in Sources */,
 				84DB92992A84806B00AB0DA2 /* EnterAgeView.swift in Sources */,
@@ -406,6 +447,7 @@
 				84DB92792A83773300AB0DA2 /* SuggesionsCellView.swift in Sources */,
 				84DB92702A83708C00AB0DA2 /* LeftMenu.swift in Sources */,
 				B05FD6072A813DFA001954BE /* ThreeDots.swift in Sources */,
+				84DB92B92A84DF3D00AB0DA2 /* User.swift in Sources */,
 				84DB92852A838E8F00AB0DA2 /* HelpView.swift in Sources */,
 				84DB92752A83712C00AB0DA2 /* SearchBar.swift in Sources */,
 				84DB928B2A83917400AB0DA2 /* ContactUsView.swift in Sources */,
@@ -590,6 +632,7 @@
 				DEVELOPMENT_TEAM = SCHUVG6ZJ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeReal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -620,6 +663,7 @@
 				DEVELOPMENT_TEAM = SCHUVG6ZJ7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BeReal/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -775,6 +819,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84DB92A92A84CB2A00AB0DA2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		84DB92AB2A84CB2A00AB0DA2 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		84DB92AD2A84CB2A00AB0DA2 /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+		84DB92AF2A84CB2A00AB0DA2 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		84DB92B12A84CB2A00AB0DA2 /* FirebaseStorageCombine-Community */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84DB92A82A84CB2A00AB0DA2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageCombine-Community";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B00AFBAA2A63A62200D34703 /* Project object */;
 }
