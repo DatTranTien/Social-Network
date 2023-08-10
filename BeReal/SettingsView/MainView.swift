@@ -16,7 +16,9 @@ struct MainView: View {
                 MainAuthenticationView()
             }
             else {
-                ContentView()
+                if viewModel.currentUser != nil {
+                    ContentView()
+                }
             }
         }
     }

@@ -26,6 +26,11 @@ class AuthenticationViewModel: ObservableObject {
     
     static let shared = AuthenticationViewModel()
     
+    init() {
+        userSession = Auth.auth().currentUser
+        fetchUser()
+    }
+    
     func sendOTP()async {
         if isLoading {return}
         
@@ -57,7 +62,8 @@ class AuthenticationViewModel: ObservableObject {
             let credential = PhoneAuthProvider.provider().credential(withVerificationID: verificationCode, verificationCode: otpText)
             let result = try await Auth.auth().signIn(with: credential)
             
-            let db = Firestore.firestore();            db.collection("users").document(result.user.uid).setData([
+            let db = Firestore.firestore();
+            db.collection("users").document(result.user.uid).setData([
                 "fullname": name,
                 "date": year.date,
                 "id": result.user.uid
@@ -68,16 +74,37 @@ class AuthenticationViewModel: ObservableObject {
                 }
             }
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [self] in
                 self.isLoading = false
                 let user = result.user
                 self.userSession = user
+                self.currentUser = User(name: name, date: year.date)
                 print(user.uid)
             }
         }catch {
             print("ERROR")
             handleError(error: error.localizedDescription)
         }
+    }
+    
+    func signOut(){
+        self.userSession = nil
+        try? Auth.auth().signOut()
+    }
+    
+    func fetchUser(){
+        guard let uid = userSession?.uid else {return}
+        
+        Firestore.firestore().collection("users")
+            .document(uid)
+            .getDocument{ snapshot, err in
+                if let err = err {
+                    print("loioooooooooo",err.localizedDescription)
+                    return
+                }
+                guard let user = try? snapshot?.data(as: User.self) else {return}
+                self.currentUser
+            }
     }
     
 }
