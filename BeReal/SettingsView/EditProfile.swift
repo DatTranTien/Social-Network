@@ -14,7 +14,10 @@ struct EditProfile: View {
     @State var username: String
     @State var bio: String
     @State var location: String
+    @State var imagePickerPresented = false
     @EnvironmentObject var viewModel: AuthenticationViewModel
+    @State private var selectedImage: UIImage?
+    @State private var profileImage: Image?
     @Environment(\.dismiss) var dismiss
     
     let currentUser: User
@@ -59,31 +62,45 @@ struct EditProfile: View {
             
             VStack{
             VStack{
-                ZStack(alignment: .bottomTrailing){
-//                    Image("pp").resizable().scaledToFit().frame(width: 120,height: 120).cornerRadius(60)
-                    Circle()
-                        .frame(width: 130, height: 130)
-                        .cornerRadius(75)
-                        .foregroundColor(Color(red: 152/255, green: 163/255, blue: 16/255))
-                        .overlay(
-                            Text(viewModel.currentUser!.name.prefix(1).uppercased())
-                                .foregroundColor(.white)
-                                .font(.system(size: 60))
-                        )
-                    
-                    ZStack{
-                        ZStack{
-                            Circle().frame(width: 34,height: 34)
-                                .foregroundColor(.black)
-                            Circle().frame(width: 30,height: 30)
-                                .foregroundColor(.white)
-                            Circle().frame(width: 30,height: 30)
-                                .foregroundColor(.black).opacity(0.1)
+                Button(action: {
+                    self.imagePickerPresented.toggle()
+                }, label: {
+                    ZStack(alignment: .bottomTrailing){
+    //                    Image("pp").resizable().scaledToFit().frame(width: 120,height: 120).cornerRadius(60)
+                        if let image = profileImage {
+                            image.resizable().scaledToFit().frame(width: 120,height: 120).cornerRadius(60)
+                        }else {
+                            Circle()
+                                .frame(width: 130, height: 130)
+                                .cornerRadius(75)
+                                .foregroundColor(Color(red: 152/255, green: 163/255, blue: 16/255))
+                                .overlay(
+                                    Text(viewModel.currentUser!.name.prefix(1).uppercased())
+                                        .foregroundColor(.white)
+                                        .font(.system(size: 60))
+                                )
                         }
-                        Image(systemName: "camera.fill")
-                            .font(.system(size: 16))
-                            .shadow(color: .white, radius: 1,x:1,y:1)
+                        
+                        ZStack{
+                            ZStack{
+                                Circle().frame(width: 34,height: 34)
+                                    .foregroundColor(.black)
+                                Circle().frame(width: 30,height: 30)
+                                    .foregroundColor(.white)
+                                Circle().frame(width: 30,height: 30)
+                                    .foregroundColor(.black).opacity(0.1)
+                            }
+                            Image(systemName: "camera.fill")
+                                .foregroundColor(.black)
+                                .font(.system(size: 16))
+                                .shadow(color: .white, radius: 1,x:1,y:1)
+                        }
                     }
+                })
+                .sheet(isPresented: $imagePickerPresented){
+                    loadImage()
+                } content: {
+                    ImagePicker(image: $selectedImage)
                 }
             }
             
@@ -212,6 +229,10 @@ struct EditProfile: View {
             viewModel.currentUser!.location = self.location
             await viewModel.saveUserData(data: ["location": self.location])
         }
+    }
+    func loadImage() {
+        guard let selectedImage = selectedImage else {return}
+        profileImage = Image (uiImage: selectedImage)
     }
 }
 
