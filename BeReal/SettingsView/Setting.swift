@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 @available(iOS 15.0, *)
 struct Setting: View {
@@ -48,11 +49,17 @@ struct Setting: View {
                                 .opacity(0.07)
                                 .overlay(
                                     HStack{
-//                                        Image("pp")
-//                                            .resizable()
-//                                            .scaledToFit()
-//                                            .frame(width: 60,height: 60)
-//                                            .cornerRadius(30)
+                                        //                                        Image("pp")
+                                        //                                            .resizable()
+                                        //                                            .scaledToFit()
+                                        //                                            .frame(width: 60,height: 60)
+                                        //                                            .cornerRadius(30)
+                                        if let profileImageUrl = viewModel.currentUser!.profileImageUrl {
+                                            KFImage(URL(string: profileImageUrl))
+                                                .resizable()
+                                                .frame(width:60, height: 60)
+                                                .cornerRadius(30)
+                                        }else {
                                         Circle()
                                             .frame(width: 60, height: 60)
                                             .cornerRadius(30)
@@ -62,7 +69,7 @@ struct Setting: View {
                                                     .foregroundColor(.white)
                                                     .font(.system(size: 25))
                                             )
-                                        
+                                    }
                                         
                                         
                                         VStack(alignment: .leading){
