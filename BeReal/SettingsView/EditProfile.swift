@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 @available(iOS 15.0, *)
 struct EditProfile: View {
@@ -67,6 +68,15 @@ struct EditProfile: View {
                 }, label: {
                     ZStack(alignment: .bottomTrailing){
     //                    Image("pp").resizable().scaledToFit().frame(width: 120,height: 120).cornerRadius(60)
+                        if currentUser.profileImageUrl != nil && profileImage == nil {
+                            if let profileImage = currentUser.profileImageUrl {
+                                KFImage(URL(string: profileImage))
+                                    .resizable()
+                                    .frame(width: 120,height: 120)
+                                    .cornerRadius(60)
+                                
+                            }
+                        } else
                         if let image = profileImage {
                             image.resizable().scaledToFit().frame(width: 120,height: 120).cornerRadius(60)
                         }else {
@@ -228,6 +238,20 @@ struct EditProfile: View {
         if viewModel.currentUser!.location != self.location && !self.location.isEmpty {
             viewModel.currentUser!.location = self.location
             await viewModel.saveUserData(data: ["location": self.location])
+        }
+        if selectedImage != nil {
+            viewModel.uploadProfileImage(image: selectedImage!) {
+                url in
+                do {
+                    Task {
+                        viewModel.currentUser!.profileImageUrl = url
+                        await viewModel.saveUserData(data: ["profileImageUrl":url])
+                    }
+                }
+                catch {
+                    print(error.localizedDescription)
+                }
+            }
         }
     }
     func loadImage() {
