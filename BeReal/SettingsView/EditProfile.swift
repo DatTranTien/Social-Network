@@ -10,12 +10,21 @@ import SwiftUI
 @available(iOS 15.0, *)
 struct EditProfile: View {
     @State var width = UIScreen.main.bounds.width
-    @State var fullname = ""
-    @State var username = ""
-    @State var bio = ""
-    @State var location = ""
+    @State var fullname: String
+    @State var username: String
+    @State var bio: String
+    @State var location: String
     @EnvironmentObject var viewModel: AuthenticationViewModel
     @Environment(\.dismiss) var dismiss
+    
+    let currentUser: User
+    init(currentUser: User) {
+        self.currentUser = currentUser
+        self._fullname = State(initialValue: currentUser.name)
+        self._bio = State(initialValue: currentUser.bio ?? "")
+        self._username = State(initialValue: currentUser.username ?? "")
+        self._location = State(initialValue: currentUser.location ?? "")
+    }
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -29,7 +38,12 @@ struct EditProfile: View {
                             Text("Cancel").foregroundColor(.white)
                         })
                         Spacer()
-                        Text("Save").foregroundColor(.gray)
+                        Button(action: {
+                            saveData()
+                            dismiss()
+                        }, label: {
+                            Text("Save").foregroundColor(.gray)
+                        })
                     }.padding(.horizontal,width*0.05)
                     Text("Edit Profile").foregroundColor(.white)
                         .fontWeight(.semibold)
@@ -87,7 +101,7 @@ struct EditProfile: View {
                      TextField("",text: $fullname)
                             .font(.system(size: 16))
                             .placeholder(when: fullname.isEmpty){
-                                Text("Cem").foregroundColor(.white)
+                                Text(viewModel.currentUser!.name).foregroundColor(.white)
                                     .font(.system(size: 16))
                             }.foregroundColor(.white)
                             .padding(.leading,width*0.05)
@@ -180,14 +194,20 @@ struct EditProfile: View {
             }.padding(.top,UIScreen.main.bounds.height*0.08)
         }
     }
-}
-
-struct EditProfile_Previews: PreviewProvider {
-    static var previews: some View {
-        if #available(iOS 15.0, *) {
-            EditProfile()
-        } else {
-            // Fallback on earlier versions
+    
+    func saveData(){
+        if viewModel.currentUser!.name != self.fullname && !self.fullname.isEmpty {
+            viewModel.currentUser!.name = self.fullname
         }
     }
 }
+
+//struct EditProfile_Previews: PreviewProvider {
+//    static var previews: some View {
+//        if #available(iOS 15.0, *) {
+//            EditProfile()
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//    }
+//}

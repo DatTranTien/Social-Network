@@ -40,7 +40,7 @@ struct Setting: View {
                     
                     VStack{
                         NavigationLink {
-                            EditProfile().navigationBarBackButtonHidden()
+                            EditProfile(currentUser: viewModel.currentUser!).navigationBarBackButtonHidden()
                         }label: {
                             RoundedRectangle(cornerRadius: 16)
                                 .frame(width: UIScreen.main.bounds.width*0.9, height: 90)
