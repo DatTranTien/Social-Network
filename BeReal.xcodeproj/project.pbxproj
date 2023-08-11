@@ -48,6 +48,7 @@
 		84DB92BF2A85F0E100AB0DA2 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92BE2A85F0E100AB0DA2 /* ImagePicker.swift */; };
 		84DB92C22A85FBE900AB0DA2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 84DB92C12A85FBE900AB0DA2 /* Kingfisher */; };
 		84DB92C42A86069E00AB0DA2 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92C32A86069E00AB0DA2 /* CameraView.swift */; };
+		84DB92C62A8612CB00AB0DA2 /* CameraViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DB92C52A8612CB00AB0DA2 /* CameraViewModel.swift */; };
 		B00AFBB62A63A62300D34703 /* BeRealApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB52A63A62300D34703 /* BeRealApp.swift */; };
 		B00AFBB82A63A62300D34703 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00AFBB72A63A62300D34703 /* ContentView.swift */; };
 		B00AFBBA2A63A62700D34703 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00AFBB92A63A62700D34703 /* Assets.xcassets */; };
@@ -114,6 +115,7 @@
 		84DB92BC2A85EDE100AB0DA2 /* ImageUploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploader.swift; sourceTree = "<group>"; };
 		84DB92BE2A85F0E100AB0DA2 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		84DB92C32A86069E00AB0DA2 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		84DB92C52A8612CB00AB0DA2 /* CameraViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewModel.swift; sourceTree = "<group>"; };
 		B00AFBB22A63A62300D34703 /* BeReal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeReal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00AFBB52A63A62300D34703 /* BeRealApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeRealApp.swift; sourceTree = "<group>"; };
 		B00AFBB72A63A62300D34703 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -265,6 +267,7 @@
 				84DB92632A8334A200AB0DA2 /* MemoryView.swift */,
 				84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */,
 				84DB92C32A86069E00AB0DA2 /* CameraView.swift */,
+				84DB92C52A8612CB00AB0DA2 /* CameraViewModel.swift */,
 				84DB92912A839E3200AB0DA2 /* SettingsView */,
 			);
 			path = BeReal;
@@ -459,6 +462,7 @@
 				84DB926D2A83649500AB0DA2 /* TimeZoneView.swift in Sources */,
 				84DB92622A832FCA00AB0DA2 /* Profile.swift in Sources */,
 				84DB92792A83773300AB0DA2 /* SuggesionsCellView.swift in Sources */,
+				84DB92C62A8612CB00AB0DA2 /* CameraViewModel.swift in Sources */,
 				84DB92702A83708C00AB0DA2 /* LeftMenu.swift in Sources */,
 				B05FD6072A813DFA001954BE /* ThreeDots.swift in Sources */,
 				84DB92C42A86069E00AB0DA2 /* CameraView.swift in Sources */,
