@@ -66,12 +66,12 @@ struct Setting: View {
                                         
                                         
                                         VStack(alignment: .leading){
-                                            Text("Cem")
+                                            Text(viewModel.currentUser!.name)
                                                 .foregroundColor(.white)
                                                 .fontWeight(.semibold)
                                                 .font(.system(size: 18))
                                             
-                                            Text("Cemcol")
+                                            Text(viewModel.currentUser!.username ?? viewModel.currentUser!.name.lowercased())
                                                 .foregroundColor(.white)
                                                 .fontWeight(.semibold)
                                                 .font(.system(size: 14))

@@ -39,7 +39,7 @@ struct EditProfile: View {
                         })
                         Spacer()
                         Button(action: {
-                            saveData()
+                            Task{ await saveData()}
                             dismiss()
                         }, label: {
                             Text("Save").foregroundColor(.gray)
@@ -195,9 +195,22 @@ struct EditProfile: View {
         }
     }
     
-    func saveData(){
+    func saveData()async {
         if viewModel.currentUser!.name != self.fullname && !self.fullname.isEmpty {
             viewModel.currentUser!.name = self.fullname
+            await viewModel.saveUserData(data: ["name": self.fullname])
+        }
+        if viewModel.currentUser!.username != self.username && !self.username.isEmpty {
+            viewModel.currentUser!.username = self.username
+            await viewModel.saveUserData(data: ["username": self.username])
+        }
+        if viewModel.currentUser!.bio != self.bio && !self.bio.isEmpty {
+            viewModel.currentUser!.bio = self.bio
+            await viewModel.saveUserData(data: ["bio": self.bio])
+        }
+        if viewModel.currentUser!.location != self.location && !self.location.isEmpty {
+            viewModel.currentUser!.location = self.location
+            await viewModel.saveUserData(data: ["location": self.location])
         }
     }
 }

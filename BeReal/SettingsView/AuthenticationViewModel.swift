@@ -107,4 +107,14 @@ class AuthenticationViewModel: ObservableObject {
             }
     }
     
+    func saveUserData(data: [String: Any])async {
+        guard let userId = userSession?.uid else {return}
+        do {
+            try await Firestore.firestore().collection("users").document(userId).updateData(data as [String: Any])
+        }
+        catch{
+            handleError(error: error.localizedDescription)
+        }
+    }
+    
 }
