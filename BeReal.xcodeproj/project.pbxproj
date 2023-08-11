@@ -175,23 +175,25 @@
 			isa = PBXGroup;
 			children = (
 				84DB926F2A83708C00AB0DA2 /* LeftMenu.swift */,
-				84DB92762A83756800AB0DA2 /* Suggesions.swift */,
 				84DB92712A83709B00AB0DA2 /* LeftmenuTopView.swift */,
+				84DB92762A83756800AB0DA2 /* Suggesions.swift */,
 				84DB92782A83773300AB0DA2 /* SuggesionsCellView.swift */,
 				84DB927A2A837A6000AB0DA2 /* FriendsView.swift */,
 				84DB927C2A837B2000AB0DA2 /* FriendCellView.swift */,
 				84DB927E2A837CDE00AB0DA2 /* RequestView.swift */,
+				B05FD6062A813DF9001954BE /* ThreeDots.swift */,
 			);
 			path = LeftMenu;
 			sourceTree = "<group>";
 		};
-		84DB92732A83711800AB0DA2 /* SearchBar */ = {
+		84DB92732A83711800AB0DA2 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */,
 				84DB92742A83712C00AB0DA2 /* SearchBar.swift */,
 				84DB92942A8479C800AB0DA2 /* WhiteButtonView.swift */,
 			);
-			path = SearchBar;
+			path = Items;
 			sourceTree = "<group>";
 		};
 		84DB92912A839E3200AB0DA2 /* SettingsView */ = {
@@ -209,9 +211,6 @@
 				84DB92982A84806B00AB0DA2 /* EnterAgeView.swift */,
 				84DB929A2A84855E00AB0DA2 /* EnterPhoneNumber.swift */,
 				84DB929E2A848DD500AB0DA2 /* EnterCodeView.swift */,
-				84DB92A22A84970D00AB0DA2 /* Year.swift */,
-				84DB92B82A84DF3D00AB0DA2 /* User.swift */,
-				84DB92A62A84978100AB0DA2 /* AuthenticationViewModel.swift */,
 				84DB92BA2A84E17E00AB0DA2 /* MainView.swift */,
 				84DB92A02A84946500AB0DA2 /* MainAuthenticationView.swift */,
 				84DB92922A84758700AB0DA2 /* NotificationButtonView.swift */,
@@ -223,9 +222,57 @@
 			isa = PBXGroup;
 			children = (
 				84DB92B52A84CC0400AB0DA2 /* GoogleService-Info.plist */,
-				84DB92BC2A85EDE100AB0DA2 /* ImageUploader.swift */,
+				B00AFBB52A63A62300D34703 /* BeRealApp.swift */,
+				84DB92C72A86199B00AB0DA2 /* Model */,
+				B05FD6052A813DDB001954BE /* Helpers */,
+				84DB92692A8350DF00AB0DA2 /* Extentions */,
+				84DB92C92A8619DA00AB0DA2 /* ViewModel */,
+				84DB92CB2A861EA900AB0DA2 /* View */,
+				B00AFBB92A63A62700D34703 /* Assets.xcassets */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		84DB92C72A86199B00AB0DA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84DB92B82A84DF3D00AB0DA2 /* User.swift */,
+				84DB92A22A84970D00AB0DA2 /* Year.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84DB92C92A8619DA00AB0DA2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				84DB92C52A8612CB00AB0DA2 /* CameraViewModel.swift */,
+				84DB92A62A84978100AB0DA2 /* AuthenticationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		84DB92CA2A861BEC00AB0DA2 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B0E647202A63EE66005B4F29 /* Feed.swift */,
+				B0E647232A63FDE8005B4F29 /* FeedCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		84DB92CB2A861EA900AB0DA2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				84DB92632A8334A200AB0DA2 /* MemoryView.swift */,
+				84DB92732A83711800AB0DA2 /* Items */,
+				84DB926E2A83707200AB0DA2 /* LeftMenu */,
+				B00AFBB72A63A62300D34703 /* ContentView.swift */,
+				84DB92CA2A861BEC00AB0DA2 /* Feed */,
+				84DB92612A832FCA00AB0DA2 /* Profile.swift */,
+				84DB92C32A86069E00AB0DA2 /* CameraView.swift */,
+				84DB92912A839E3200AB0DA2 /* SettingsView */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		B00AFBA92A63A62200D34703 = {
@@ -253,22 +300,7 @@
 			children = (
 				84DB92B72A84D0AA00AB0DA2 /* Info.plist */,
 				84DB92B42A84CBBC00AB0DA2 /* Shared */,
-				84DB92732A83711800AB0DA2 /* SearchBar */,
-				84DB926E2A83707200AB0DA2 /* LeftMenu */,
-				84DB92692A8350DF00AB0DA2 /* Extentions */,
-				B05FD6052A813DDB001954BE /* Helpers */,
-				B00AFBB52A63A62300D34703 /* BeRealApp.swift */,
-				B00AFBB72A63A62300D34703 /* ContentView.swift */,
-				B00AFBB92A63A62700D34703 /* Assets.xcassets */,
 				B00AFBBB2A63A62700D34703 /* Preview Content */,
-				B0E647202A63EE66005B4F29 /* Feed.swift */,
-				B0E647232A63FDE8005B4F29 /* FeedCell.swift */,
-				84DB92612A832FCA00AB0DA2 /* Profile.swift */,
-				84DB92632A8334A200AB0DA2 /* MemoryView.swift */,
-				84DB92882A838F4600AB0DA2 /* ChevronButtonView.swift */,
-				84DB92C32A86069E00AB0DA2 /* CameraView.swift */,
-				84DB92C52A8612CB00AB0DA2 /* CameraViewModel.swift */,
-				84DB92912A839E3200AB0DA2 /* SettingsView */,
 			);
 			path = BeReal;
 			sourceTree = "<group>";
@@ -301,7 +333,7 @@
 		B05FD6052A813DDB001954BE /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				B05FD6062A813DF9001954BE /* ThreeDots.swift */,
+				84DB92BC2A85EDE100AB0DA2 /* ImageUploader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

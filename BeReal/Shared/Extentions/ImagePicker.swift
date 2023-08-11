@@ -13,7 +13,7 @@ struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
     @Environment(\.presentationMode) var mode
     func makeCoordinator() -> Coordinator {
-        
+        Coordinator(self)
     }
     
     func makeUIViewController(context: Context) -> some UIViewController {

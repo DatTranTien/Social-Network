@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 15, *)
 struct CameraView: View {
     @State var switchingCamera = false
     @State var takePhotoCliked = false
@@ -16,6 +17,10 @@ struct CameraView: View {
     @State var backImage: Image?
     @State var photoTaken = false
     @State var frontImage: Image?
+    @ObservedObject var viewModel: CameraViewModel
+    init(viewModel: CameraViewModel) {
+        self.viewModel = viewModel
+    }
     var body: some View {
         ZStack{
             Color.black.ignoresSafeArea()
@@ -186,12 +191,23 @@ struct CameraView: View {
         frontImage = Image(uiImage: selectedFrontImage)
     }
     func send(){
-        
+        if selectedBackImage != nil && selectedFrontImage != nil {
+            viewModel.takePhoto(backImage: selectedBackImage!, frontImage: selectedFrontImage!){
+                backImageUrl, frontImageUrl in
+                do {
+                    Task{
+                        await viewModel.postBereal(frontImageUrl:frontImageUrl,backImageUrl:backImageUrl)
+                    }
+                }catch {
+                    print(error.localizedDescription)
+                }
+            }
+        }
     }
 }
 
-struct CameraView_Previews: PreviewProvider {
-    static var previews: some View {
-        CameraView()
-    }
-}
+//struct CameraView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CameraView()
+//    }
+//}

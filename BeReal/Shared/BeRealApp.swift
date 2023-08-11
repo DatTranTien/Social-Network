@@ -13,7 +13,12 @@ struct BeRealApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     var body: some Scene {
         WindowGroup {
-            MainView().environmentObject(AuthenticationViewModel.shared)
+            if #available(iOS 15, *) {
+                CameraView(viewModel: CameraViewModel(user: AuthenticationViewModel.shared.currentUser!))
+            } else {
+                // Fallback on earlier versions
+            }
+//            MainView().environmentObject(AuthenticationViewModel.shared)
         }
     }
 }
